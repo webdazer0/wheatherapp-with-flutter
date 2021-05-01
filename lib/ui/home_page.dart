@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:wheatherapp/ui/cities/cities_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    // Metodo per cambiare "Activity"
+    void _handleNavigatePress(BuildContext context) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (ctx) => CitiesPage(),
+        ));
+    }
 
     // Per visualizza l'alto e l'altezza del dispositivo
     print(MediaQuery.of(context).size);
@@ -15,7 +24,7 @@ class HomePage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(15)),
-        ),
+      ),
     );
 
     return Scaffold(
@@ -50,15 +59,16 @@ class HomePage extends StatelessWidget {
                       'Hola, \nBienvenido',
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(
                       height: 50,
                     ),
                     GestureDetector(
-                      onTap: () => print('Ciaooooo, hai premuto su un Gesture Detector'),
+                      onTap: () =>
+                          print('Ciaooooo, hai premuto su un Gesture Detector'),
                       child: Text(
                         'Que te parece si agregamos \nuna nueva ciudad?',
                         textAlign: TextAlign.start,
@@ -68,25 +78,19 @@ class HomePage extends StatelessWidget {
                       height: 50,
                     ),
                     RaisedButton(
-                      onPressed: () => print('Ciao'),
-                      elevation: 0,
-                      splashColor: Color(0xFF346FFF),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          15.0,
+                        onPressed: () => print('Ciao'),
+                        elevation: 0,
+                        splashColor: Color(0xFF346FFF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            15.0,
+                          ),
                         ),
-                      ),
-                      child: Text(
-                        'Aggiungi Città'
-                      )
-                    ),
+                        child: Text('Aggiungi Città')),
                     ElevatedButton(
-                      onPressed: () => print('Ciaoxxxxxx'),
-                      style: raisedButtonStyle,
-                      child: Text(
-                        'Aggiungi Città 2'
-                      )
-                    )
+                        onPressed: () => _handleNavigatePress(context),
+                        style: raisedButtonStyle,
+                        child: Text('Aggiungi Città 2'))
                   ],
                 ),
               ),
