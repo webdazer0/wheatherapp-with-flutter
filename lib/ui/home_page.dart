@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wheatherapp/ui/cities/cities_page.dart';
+import 'package:wheatherapp/ui/ui_constants.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
             child: Center(
               child: Container(
                 // color: Colors.red,
-                constraints: BoxConstraints(maxWidth: 250.0),
+                constraints: BoxConstraints(maxWidth: maxPageWidth),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
