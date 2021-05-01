@@ -3,21 +3,22 @@ import 'package:wheatherapp/ui/cities/cities_page.dart';
 import 'package:wheatherapp/ui/ui_constants.dart';
 
 class HomePage extends StatelessWidget {
+
+  /* Metodo per cambiare "Activity" -> CitiesPage */
+  void _handleNavigatePress(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+          builder: (ctx) => CitiesPage(),
+      ));
+    }
+
   @override
   Widget build(BuildContext context) {
 
-    // Metodo per cambiare "Activity"
-    void _handleNavigatePress(BuildContext context) {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (ctx) => CitiesPage(),
-        ));
-    }
-
-    // Per visualizza l'alto e l'altezza del dispositivo
+    /* Per visualizza l'alto e l'altezza del dispositivo */
     print(MediaQuery.of(context).size);
 
-    //Style custom per far assomigliare un ElevatedButton a quello deprecato RaisedButton
+    /* Style custom per far assomigliare un ElevatedButton a quello deprecato RaisedButton */
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       onPrimary: Colors.black,
       primary: Colors.grey[300],
