@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:wheatherapp/ui/common/header_widget.dart';
+import 'package:wheatherapp/ui/common/debouncer.dart';
 
-class AddCityPage extends StatelessWidget {
+class AddCityPage extends StatefulWidget {
+  @override
+  _AddCityPageState createState() => _AddCityPageState();
+}
+
+class _AddCityPageState extends State<AddCityPage> {
+  final debouncer = Debouncer();
+
+  void onChangedText(String text) {
+    debouncer.run(() {
+      if(text.length > 3) print('text:  $text');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +39,10 @@ class AddCityPage extends StatelessWidget {
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(5.0),
-                child: TextField(
+              child: TextField(
+                onChanged: onChangedText,
                 decoration: InputDecoration(
+                  hintText: 'Cerca città',
                   focusedBorder: InputBorder.none,
                   border: InputBorder.none,
                   filled: true,
@@ -35,13 +50,10 @@ class AddCityPage extends StatelessWidget {
                   prefixIcon: Icon(
                     Icons.search,
                     color: Colors.grey,
-                    ),
-                  hintText: 'Cerca città',
-                  
+                  ),
                 ),
               ),
             ),
-            
           ],
         ),
       ),
