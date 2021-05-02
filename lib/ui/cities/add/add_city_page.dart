@@ -5,6 +5,7 @@ import 'package:wheatherapp/model/City.dart';
 import 'package:wheatherapp/ui/common/header_widget.dart';
 import 'package:wheatherapp/ui/common/debouncer.dart';
 import 'package:http/http.dart' as http;
+import 'package:wheatherapp/ui/common/loader_widget.dart';
 import 'package:wheatherapp/ui/ui_constants.dart';
 
 class AddCityPage extends StatefulWidget {
@@ -117,7 +118,7 @@ class _AddCityPageState extends State<AddCityPage> {
             ),
             if(loading)
             Center(
-              child: CircularProgressIndicator(),
+              child: LoaderWidget(),
             ),
           ],
         ),
